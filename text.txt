@@ -1,0 +1,46 @@
+import { useState, useEffect } from "react";
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  return (
+    <div className="bg-white dark:bg-slate-950 min-h-screen transition-all duration-500">
+      <Navbar
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
+      <AnimatePresence>
+      <Navbar />
+      <WhatsappButton />
+
+      <Routes location={location} key={location.pathname}>
+        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/buy-land" element={<BuyLand />} />
+        <Route path="/build-home" element={<BuildHome />} />
+        <Route path="/properties" element={<Properties />} />
+        <Route path="/property/:id" element={<PropertyDetails />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/sell-land" element={<SellLand />} />
+        <Route path="/testimonials" element={<Testimonials/>} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+      <Footer />
+    </AnimatePresence>
+
+    </div>
+  );
+}
+
+export default App;
