@@ -7,7 +7,17 @@ const Properties = () => {
   return (
     <PageTransition>
 
-    <div className="max-w-7xl mx-auto py-16 px-6">
+    <div className="
+backdrop-blur-lg
+bg-white/10
+dark:bg-white/5
+
+border
+border-white/20
+
+rounded-3xl
+shadow-xl
+">
       <h1 className="text-4xl font-bold mb-10">
         Featured Lands
       </h1>
